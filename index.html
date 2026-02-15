@@ -26,6 +26,78 @@
 </head>
 <body>
   <div id="loadingSpinner">Lade Modell ...</div>
+  <body>
+  <div id="loadingSpinner">Lade Modell ...</div>
+
+  <div id="menu">
+    <label for="speedSlider">Bewegungsgeschwindigkeit: <span id="speedValue">30</span></label>
+    <input type="range" min="0" max="30" step="0.1" id="speedSlider" value="20">
+    <div class="slider-tip">(Sprint: <span id="sprintValue">40</span>)</div>
+
+    <label for="scaleSlider" style="margin-top:1.4em;">Modell-Scale: <span id="scaleValue">0.02</span></label>
+    <input type="range" min="0.001" max="0.08" step="0.0001" id="scaleSlider" value="0.02">
+    <div class="slider-tip"></div>
+
+<div style="margin-top:1.4em; display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap;">
+  <label style="display:flex; align-items:center; gap:8px; margin:0;">
+    <input type="checkbox" id="flyToggle">
+    <span>Flugmodus</span>
+  </label>
+
+  <label style="display:flex; align-items:center; gap:8px; margin:0;">
+    <input type="checkbox" id="sunToggle" checked>
+    <span>Sonne + Schatten</span>
+  </label>
+</div>
+
+
+    <button id="toggleExplode">Schichten aufklappen</button>
+
+    <button id="resetPosition">Zurück zum Start</button>
+    <button id="closeMenu">Schließen</button>
+  </div>
+
+  <div id="mobileControls" style="display:none;">
+    <div id="joystickZone" style="position:fixed; left:10px; bottom:10px; width:110px; height:110px; z-index:50;"></div>
+    <div style="position:fixed; right: calc(12px + env(safe-area-inset-right)); bottom: calc(12px + env(safe-area-inset-bottom)); z-index:50; display:flex; flex-direction:column; gap:12px;">
+      <button id="btnMenu" style="width:48px;height:48px;border-radius:50%;background:#222;color:#3fcf8e;font-size:1.08em;">≡</button>
+      <button id="btnExplode" style="width:48px;height:48px;border-radius:50%;background:#222;color:#3fcf8e;font-size:0.95em;">⤢</button>
+      <button id="btnLayers" style="width:48px;height:48px;border-radius:50%;background:#222;color:#3fcf8e;font-size:0.72em;">LAY</button>
+      <button id="btnUp" style="width:48px;height:48px;border-radius:50%;background:#3fcf8e;color:#222;font-size:1.3em;">↑</button>
+      <button id="btnDown" style="width:48px;height:48px;border-radius:50%;background:#3fcf8e;color:#222;font-size:1.3em;">↓</button>
+    </div>
+  </div>
+
+  <!-- Mobile Layer Panel -->
+  <div id="layerPanel" style="
+    position:fixed; right:12px; top: calc(12px + env(safe-area-inset-top)); z-index:60;
+    background:rgba(20,20,20,0.92); color:#fff;
+    padding:12px; border-radius:14px; font-family:sans-serif;
+    width:min(260px, 82vw);
+    display:none;
+    box-shadow:0 16px 64px rgba(0,0,0,0.35);
+  ">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+      <div style="font-weight:700;">Layer</div>
+      <button id="btnCloseLayerPanel" style="
+        background:#222; color:#3fcf8e; border:none; border-radius:10px;
+        padding:6px 10px; font-size:0.95em;
+      ">✕</button>
+    </div>
+
+    <div style="display:flex; gap:10px; margin:10px 0 8px;">
+      <button id="btnLayersAllOn" style="
+        flex:1; background:#3fcf8e; color:#222; border:none;
+        border-radius:10px; padding:8px; font-size:0.95em;
+      ">Alle an</button>
+      <button id="btnLayersAllOff" style="
+        flex:1; background:#222; color:#3fcf8e; border:1px solid #3fcf8e;
+        border-radius:10px; padding:8px; font-size:0.95em;
+      ">Alle aus</button>
+    </div>
+
+    <div id="layerList" style="max-height:44vh; overflow:auto; padding-right:6px;"></div>
+  </div>
 
   <!-- dein kompletter HTML-body (menu, mobileControls, layerPanel) bleibt genau wie bei dir -->
   <!-- kopier ihn 1:1 aus deiner aktuellen Datei hier rein -->
