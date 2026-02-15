@@ -6,6 +6,7 @@
   <meta name="author" content="Joe Martens" />
   <meta name="x-fingerprint" content="JM-3DVIEWER-2026-02-15-6f2c9a9d" />
   <title>Mobile 3D FPS Viewer</title>
+
   <style>
     html,body{margin:0;padding:0;width:100vw;height:100vh;overflow:hidden}
     body{background:#1d1d1d}
@@ -22,11 +23,11 @@
     #mobileControls *{pointer-events:auto;user-select:none;-webkit-user-select:none}
     @media (max-width:600px){#menu{padding:1em 2vw}#menu label{font-size:1em}}
   </style>
+
   <script src="https://cdn.jsdelivr.net/npm/nipplejs@0.9.0/dist/nipplejs.min.js"></script>
 </head>
+
 <body>
-  <div id="loadingSpinner">Lade Modell ...</div>
-  <body>
   <div id="loadingSpinner">Lade Modell ...</div>
 
   <div id="menu">
@@ -38,21 +39,19 @@
     <input type="range" min="0.001" max="0.08" step="0.0001" id="scaleSlider" value="0.02">
     <div class="slider-tip"></div>
 
-<div style="margin-top:1.4em; display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap;">
-  <label style="display:flex; align-items:center; gap:8px; margin:0;">
-    <input type="checkbox" id="flyToggle">
-    <span>Flugmodus</span>
-  </label>
+    <div style="margin-top:1.4em; display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap;">
+      <label style="display:flex; align-items:center; gap:8px; margin:0;">
+        <input type="checkbox" id="flyToggle">
+        <span>Flugmodus</span>
+      </label>
 
-  <label style="display:flex; align-items:center; gap:8px; margin:0;">
-    <input type="checkbox" id="sunToggle" checked>
-    <span>Sonne + Schatten</span>
-  </label>
-</div>
-
+      <label style="display:flex; align-items:center; gap:8px; margin:0;">
+        <input type="checkbox" id="sunToggle" checked>
+        <span>Sonne + Schatten</span>
+      </label>
+    </div>
 
     <button id="toggleExplode">Schichten aufklappen</button>
-
     <button id="resetPosition">Zurück zum Start</button>
     <button id="closeMenu">Schließen</button>
   </div>
@@ -68,7 +67,6 @@
     </div>
   </div>
 
-  <!-- Mobile Layer Panel -->
   <div id="layerPanel" style="
     position:fixed; right:12px; top: calc(12px + env(safe-area-inset-top)); z-index:60;
     background:rgba(20,20,20,0.92); color:#fff;
@@ -98,10 +96,6 @@
 
     <div id="layerList" style="max-height:44vh; overflow:auto; padding-right:6px;"></div>
   </div>
-
-  <!-- dein kompletter HTML-body (menu, mobileControls, layerPanel) bleibt genau wie bei dir -->
-  <!-- kopier ihn 1:1 aus deiner aktuellen Datei hier rein -->
-  <!-- ... -->
 
   <script type="module" src="./bootstrap.mjs"></script>
 </body>
